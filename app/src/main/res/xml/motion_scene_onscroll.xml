@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="1000"
+        motion:motionInterpolator="linear">
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@+id/scroll_view"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_height="280dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:alpha="1"
+            android:id="@+id/image" />
+
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_title"
+            android:id="@+id/scroll_view" />
+
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/image"
+            android:id="@+id/tv_title"
+            motion:layout_editor_absoluteY="290dp"
+            android:layout_marginStart="20dp"
+            motion:layout_constraintStart_toStartOf="parent">
+
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="@color/black" />
+
+        </Constraint>
+
+        <Constraint
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:id="@+id/btn_back"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="@+id/linearLayoutCompat"
+            motion:layout_constraintBottom_toTopOf="@+id/scroll_view" />
+
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/linearLayoutCompat"
+            android:layout_marginStart="10dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="@+id/image" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:layout_height="60dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_width="60dp"
+            android:id="@+id/btn_back"
+            motion:layout_constraintEnd_toEndOf="parent" />
+
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/tv_title"
+            android:layout_marginStart="20dp"
+            motion:layout_constraintStart_toEndOf="@+id/btn_back"
+            motion:layout_editor_absoluteX="60dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/btn_back" >
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="@color/teal_200" />
+        </Constraint>
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            motion:layout_constraintTop_toBottomOf="@+id/image"
+            android:id="@+id/scroll_view" />
+        <Constraint
+            android:layout_height="180dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:background="@color/purple_500"
+            android:layout_width="match_parent"
+            android:alpha="0"
+            android:id="@+id/image" />
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="@+id/image"
+            motion:layout_constraintBottom_toBottomOf="@+id/image"
+            motion:layout_constraintEnd_toEndOf="@+id/image"
+            android:layout_width="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_title"
+            android:id="@+id/linearLayoutCompat" />
+
+    </ConstraintSet>
+</MotionScene>
